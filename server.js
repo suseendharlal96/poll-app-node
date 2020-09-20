@@ -31,7 +31,7 @@ mongoose
     useNewUrlParser: true,
   })
   .then((res) => {
-    server.listen(3000);
+    server.listen(port);
   })
   .catch((err) => {
     console.log(err);
