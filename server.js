@@ -26,12 +26,16 @@ const server = http.createServer(app);
 const port = process.env.PORT || 3000;
 
 mongoose
-  .connect(process.env.MONGO_DB, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  })
+  .connect(
+    "mongodb+srv://suseendhar:susee123@cluster0.iwva7.mongodb.net/svelte-poll?retryWrites=true&w=majority",
+    {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    }
+  )
   .then((res) => {
     server.listen(port);
+    console.log(port);
   })
   .catch((err) => {
     console.log(err);
