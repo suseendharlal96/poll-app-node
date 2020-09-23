@@ -29,10 +29,17 @@ module.exports = {
   //   delete a poll
   deletePoll: async (req, res) => {
     const id = req.body.id;
-    await Poll.deleteOne({ _id: id });
-    res.status(200).json({
-      message: "Deleted successfully",
-    });
+    console.log(req.body);
+    const result = await Poll.deleteOne({ _id: id });
+    if (id) {
+      res.status(200).json({
+        message: "Deleted successfully",
+      });
+    } else {
+      res.status(401).json({
+        message: "Invalid data",
+      });
+    }
   },
   //   cast vote
   updateVote: async (req, res) => {
